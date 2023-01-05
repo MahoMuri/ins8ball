@@ -1,0 +1,5 @@
+.footer {
+  @apply flex items-center justify-center;
+  @apply gap-3 w-full p-4;
+  @apply text-lg font-firaCode bg-ins8ball-green;
+}
