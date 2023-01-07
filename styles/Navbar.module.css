@@ -1,0 +1,15 @@
+.navlinks {
+  @apply flex gap-7 text-2xl justify-evenly ml-auto mr-14;
+}
+
+.navlink {
+  @apply relative font-firaCode font-thin tracking-[1.3px] text-ins8ball-yellow;
+}
+
+.navlink::after {
+  @apply content-[""] bg-ins8ball-yellow h-1 w-0 left-0 -bottom-[5px] rounded-xl absolute duration-300;
+}
+
+.navlink:hover::after {
+  @apply w-full;
+}

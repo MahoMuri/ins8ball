@@ -1,0 +1,14 @@
+.inputField {
+  @apply flex items-center w-2/6 font-firaCode;
+  @apply gap-4;
+}
+
+.inputBox {
+  @apply w-full px-3 py-5 rounded-lg text-center text-xl;
+  @apply border-2 border-ins8ball-blue border-solid;
+  @apply focus:border-ins8ball-green focus:ring focus:ring-ins8ball-green focus:ring-opacity-50;
+}
+
+.sendBtn {
+  @apply text-ins8ball-green;
+}
