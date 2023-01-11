@@ -20,7 +20,7 @@ export default function About() {
 
         <div className={styles.centerContent}>
           <div>
-            This project is done in collaboration of
+            This project is done in collaboration of{" "}
             <span className="font-bold">COMPILE </span>
             <span className="text-gray-600">x</span>
             <span className="font-bold"> INSIGHT</span> for the foundation week

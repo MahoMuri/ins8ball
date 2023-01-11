@@ -1,0 +1,6 @@
+.eightball {
+  @apply absolute top-1/2 left-1/2 w-[140px] h-[83px];
+  @apply -translate-x-1/2 -translate-y-2/3;
+  @apply text-center text-xl font-poppins font-light;
+  @apply leading-7;
+}
