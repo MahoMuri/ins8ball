@@ -1,0 +1,15 @@
+.pullUp a:before {
+    @apply absolute w-full h-[2px] left-0 bottom-0 bg-white opacity-5 transition-all duration-75;
+}
+
+.pullUp a:hover:before {
+    @apply h-full;
+}
+
+.innerContainer {
+    @apply grid place-items-center rounded-md h-[300px] w-[300px] mb-10;
+}
+
+.test {
+    @apply text-firaCode;
+}

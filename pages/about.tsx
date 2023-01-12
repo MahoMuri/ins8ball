@@ -11,7 +11,7 @@ export default function About() {
         <title>about</title>
       </Head>
 
-      <div className="flex flex-col items-center gap-32 my-6">
+      <div className="flex flex-col items-center gap-20 my-8">
         <div className="flex gap-10">
           <Insight />
           <Compile />
@@ -21,10 +21,12 @@ export default function About() {
         <div className={styles.centerContent}>
           <div>
             This project is done in collaboration of{" "}
-            <span className="font-bold">COMPILE </span>
+            <span className="font-bold text-ins8ball-yellow">COMPILE </span>
             <span className="text-gray-600">x</span>
-            <span className="font-bold"> INSIGHT</span> for the foundation week
-            celebration of iACADEMY: &quot;<i>KUNG ANO MAN TO</i>&quot;
+            <span className="font-bold text-ins8ball-yellow"> INSIGHT</span> for
+            the foundation week celebration of iACADEMY: &quot;
+            <i>kaleidoscope, into the future</i>
+            &quot;
           </div>
           <div>
             <p>&copy; COMPILE x INSIGHT</p>
@@ -54,6 +56,13 @@ export default function About() {
           </table>
           <p className="text-neutral-600">COMPILE</p>
         </div>
+      </div>
+      <div className="mb-10 mt-10 text-gray-500 text-center text-firaCode text-xs">
+        <a href="mailto:compile@iacademy.edu.ph">
+          <i>
+            <u>report a problem</u>
+          </i>
+        </a>
       </div>
     </div>
   );
