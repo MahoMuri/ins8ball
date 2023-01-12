@@ -185,7 +185,7 @@ export default function Insight() {
       {/* end of row */}
 
       <div className="mt-10 mb-20 text-firaCode text-xs text-ins8ball-gray flex flex-col justify-center items-center ">
-        <p className="">Did not find what you're looking for? </p>
+        <p className="">Did not find what you&apos;re looking for? </p>
         <p>
           <span>
             <a href="mailto:compile@iacademy.edu.ph">

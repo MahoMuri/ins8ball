@@ -10,14 +10,14 @@ export default function Home() {
   const [question, setQuestion] = useState<string>();
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setQuestion(event.target.value);
+    setQuestion(event.target.value.toLowerCase());
   };
 
   const ask = () => {
     // TODO: Improve error handling, add anime.js for animation
     if (
       !question?.match(
-        /^(?:am|is|are|does|do|will|was|has|what|which|whose|who|where|how|when|why)|(?:\\?|\\uff1f)\$/g
+        /^(?:am|is|are|does|do|will|was|has|which|whose|who|where|how|when|why)|(?:\\?|\\uff1f)\$/g
       )
     ) {
       alert("Not a valid question!");
