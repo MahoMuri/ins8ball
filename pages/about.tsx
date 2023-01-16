@@ -25,7 +25,7 @@ export default function About() {
             <span className="text-gray-600">x</span>
             <span className="font-bold text-ins8ball-yellow"> INSIGHT</span> for
             the foundation week celebration of iACADEMY: &quot;
-            <i>kaleidoscope, into the future</i>
+            <i>FUTURESCOPE 2023: The HUE of the Future is YOU</i>
             &quot;
           </div>
           <div>
