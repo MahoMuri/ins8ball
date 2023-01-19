@@ -2,7 +2,8 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
 import { Icon } from "@iconify-icon/react";
-import { ChangeEvent, InvalidEvent, useState } from "react";
+import anime from "animejs";
+import { ChangeEvent, useState } from "react";
 import EightBall from "../components/EightBall";
 
 export default function Home() {
@@ -70,9 +71,26 @@ export default function Home() {
         </p>,
       ];
 
-      setAnswer(
-        possibleAnswers[Math.floor(Math.random() * possibleAnswers.length)]
-      );
+      const shake = anime({
+        targets: ".eightball",
+        translateX: [0, -40, 40, 0],
+        direction: "alternate",
+        duration: 100,
+        loop: true,
+      });
+
+      setAnswer(undefined);
+      shake.play();
+
+      setTimeout(() => {
+        shake.pause();
+        anime.set(".eightball", {
+          translateX: 0,
+        });
+        setAnswer(
+          possibleAnswers[Math.floor(Math.random() * possibleAnswers.length)]
+        );
+      }, 1000);
     }
   };
 
@@ -82,7 +100,9 @@ export default function Home() {
         <title>ins8ball</title>
       </Head>
       <div className="flex flex-col gap-7 pt-3 pb-10 items-center">
-        <EightBall answer={answer} />
+        <div className="eightball">
+          <EightBall answer={answer} />
+        </div>
         <div className={styles.inputField}>
           <input
             type="text"
