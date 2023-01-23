@@ -3,122 +3,89 @@ import styles from "../styles/Home.module.css";
 
 import { Icon } from "@iconify-icon/react";
 import anime from "animejs";
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import EightBall from "../components/EightBall";
+import { Utilities } from "../utils/Utilities";
+import { Animations } from "../utils/Animations";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import Popup from "../components/Popup";
 
 export default function Home() {
   const [answer, setAnswer] = useState<JSX.Element>();
-  const [question, setQuestion] = useState<string>();
+  const [showPopup, setShowPopup] = useState<boolean>();
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setQuestion(event.target.value.toLowerCase());
-  };
-
-  const ask = () => {
-    // TODO: Improve error handling, add anime.js for animation
-    if (
-      !question?.match(
-        /^(?:am|is|are|does|do|will|was|has|which|whose|who|where|how|when|why)|(?:\\?|\\uff1f)\$/g
-      )
-    ) {
-      alert("Not a valid question!");
-    } else {
-      const possibleAnswers = [
-        <p>
-          It is <br /> certain
-        </p>,
-        <p>It is decidedly so</p>,
-        <p>Without a doubt</p>,
-        <p>
-          Yes,
-          <br />
-          definitely{" "}
-        </p>,
-        <p>You may rely on it</p>,
-        <p>
-          As I see it,
-          <br />
-          yes
-        </p>,
-        <p>
-          Outlook <br />
-          good
-        </p>,
-        <p>Yes</p>,
-        <p>Signs point to yes</p>,
-        <p>Reply hazy try again</p>,
-        <p>Ask again later</p>,
-        <p>Better not tell you now</p>,
-        <p>
-          Cannot predict <br /> now
-        </p>,
-        <p>Concentrate and ask again</p>,
-        <p>Don&apos;t count on it</p>,
-        <p>
-          My reply
-          <br />
-          is no
-        </p>,
-        <p>My sources say no</p>,
-        <p>
-          Most <br /> likely
-        </p>,
-        <p>Outlook not so good</p>,
-        <p>
-          Very
-          <br />
-          doubtful
-        </p>,
-      ];
-
-      const shake = anime({
-        targets: ".eightball",
-        translateX: [0, -40, 40, 0],
-        direction: "alternate",
-        duration: 100,
-        loop: true,
-      });
-
-      setAnswer(undefined);
-      shake.play();
-
-      setTimeout(() => {
-        shake.pause();
-        anime.set(".eightball", {
-          translateX: 0,
-        });
-        setAnswer(
-          possibleAnswers[Math.floor(Math.random() * possibleAnswers.length)]
-        );
-      }, 1000);
-    }
-  };
+  const regex =
+    /^(?:am|is|are|does|do|will|was|has|which|whose|who|where|how|when|why)|(?:\\?|\\uff1f)\$/g;
 
   return (
-    <>
+    <div>
       <Head>
-        <title>ins8ball</title>
+        <title>Ins8ball</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div className="flex flex-col gap-7 pt-3 pb-10 items-center">
+        <Popup isVisible={showPopup} onClose={() => setShowPopup(false)} />
         <div className="eightball">
           <EightBall answer={answer} />
         </div>
-        <div className={styles.inputField}>
-          <input
-            type="text"
-            id="question"
-            className={styles.inputBox}
-            onChange={handleChange}
-            placeholder="tell me what you think?"
-          />
-          <Icon
-            icon="majesticons:send"
-            width={66}
-            className={styles.sendBtn}
-            onClick={ask}
-          />
-        </div>
+        <Formik
+          initialValues={{ question: "" }}
+          validationSchema={Yup.object().shape({
+            question: Yup.string()
+              .matches(regex, "Invalid Question!")
+              .required("Required"),
+          })}
+          onSubmit={() => {
+            const shake = Animations.shake();
+            setAnswer(undefined);
+            shake.play();
+
+            setTimeout(() => {
+              shake.pause();
+              anime.set(".eightball", {
+                translateX: 0,
+              });
+              setAnswer(Utilities.getAnswer());
+              setTimeout(() => {
+                setShowPopup(true);
+              }, 1000);
+            }, 1000);
+          }}
+        >
+          {({ errors, touched }) => (
+            <Form className={styles.inputField}>
+              <div className="flex flex-col flex-grow">
+                <Field
+                  className={
+                    errors.question && touched.question
+                      ? `${styles.inputBox} ${styles.inputBoxInvalid}`
+                      : styles.inputBox
+                  }
+                  name="question"
+                  type="text"
+                  placeholder="ask a question!"
+                />
+                <ErrorMessage
+                  name="question"
+                  render={(msg) => (
+                    <span className="text-red-600 mt-2">{msg}</span>
+                  )}
+                />
+              </div>
+              <button type="submit">
+                <Icon
+                  icon="majesticons:send"
+                  width={66}
+                  className={styles.sendBtn}
+                />
+              </button>
+            </Form>
+          )}
+        </Formik>
       </div>
-    </>
+    </div>
   );
 }
