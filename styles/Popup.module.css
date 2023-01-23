@@ -1,0 +1,10 @@
+.popupBG {
+  @apply flex justify-center items-center z-50;
+  @apply fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm;
+}
+
+.popupContent {
+  @apply flex flex-col justify-center items-center;
+  @apply h-[400px] p-20;
+  @apply font-firaCode font-light text-3xl;
+}

@@ -1,0 +1,7 @@
+.centerContent {
+    @apply flex flex-col gap-10 text-xl font-light font-firaCode w-[809px] text-white text-center;
+}
+
+.bottomContent {
+    @apply flex flex-col gap-5 font-firaCode text-white font-light text-xl text-center;
+}

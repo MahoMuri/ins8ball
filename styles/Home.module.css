@@ -1,0 +1,21 @@
+.inputField {
+  @apply flex items-start w-2/6 font-firaCode;
+  @apply gap-4;
+}
+
+.inputBox {
+  @apply w-full px-3 py-5 rounded-lg text-center text-xl;
+  @apply border-2 border-none;
+  @apply focus:ring focus:ring-ins8ball-green;
+}
+
+.inputBoxInvalid {
+  @apply ring ring-red-600;
+  @apply focus:ring focus:ring-red-600;
+}
+
+.sendBtn {
+  @apply w-min;
+  @apply text-ins8ball-green cursor-pointer;
+  @apply hover:scale-110 duration-200;
+}
