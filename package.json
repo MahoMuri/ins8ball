@@ -1,12 +1,13 @@
 {
   "name": "ins8ball",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "release": "standard-version"
   },
   "dependencies": {
     "@next/font": "13.1.1",
@@ -21,6 +22,7 @@
     "next": "13.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "standard-version": "^9.5.0",
     "typescript": "4.9.4",
     "yup": "^0.32.11"
   },
