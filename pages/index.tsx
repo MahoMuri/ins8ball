@@ -35,6 +35,7 @@ export default function Home() {
           initialValues={{ question: "" }}
           validationSchema={Yup.object().shape({
             question: Yup.string()
+              .lowercase()
               .matches(regex, "Invalid Question!")
               .required("Required"),
           })}
