@@ -45,29 +45,7 @@ export default function Insight() {
       <h1 className="text-2xl text-ins8ball-green font-firaCode text-center mt-10">
         PERSONALITY TESTS{" "}
       </h1>
-      <h2 className="text-ins8ball-yellow font-firaCode text-center mt-20 mb-10 text-lg">
-        General Personality Test
-      </h2>
-      {/* col 1 */}
-      <div className="flex items-center justify-center font-firaCode mt-5">
-        <div className="place-center grid grid-cols-1 grid-flow-row-dense grid-rows-1 auto-rows-max md:auto-rows-min gap-10">
-          <div className="grid place-items-center rounded-md h-[300px] w-[300px] mb-10">
-            <Image
-              src={TestSixteenPersonalityTrait}
-              alt="16 personality tests logo"
-              height={250}
-              className="rounded-xl"
-            ></Image>
 
-            <a
-              href="https://www.16personalities.com/free-personality-test"
-              className="mb-5 mt-6 text-center font-xs text-ins8ball-gray"
-            >
-              16 Personality Tests
-            </a>
-          </div>
-        </div>
-      </div>
       {/* row title */}
       <h2 className="text-ins8ball-yellow font-firaCode text-center mt-10 mb-10 text-lg">
         Love
