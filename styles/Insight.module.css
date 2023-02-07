@@ -1,0 +1,9 @@
+.sectionHeader {
+  @apply text-ins8ball-yellow font-firaCode text-center mt-10 mb-10 text-xl font-bold tracking-wide;
+}
+
+.cardLink {
+  @apply mb-10 mt-6 text-center text-ins8ball-gray;
+  @apply hover:text-ins8ball-yellow hover:underline;
+  @apply active:font-bold;
+}

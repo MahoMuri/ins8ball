@@ -9,7 +9,7 @@ export default function Compile() {
   return (
     <div className="flex items-center justify-center font-firaCode font-thin h-[calc(100vh-256px-60px)] ">
       <div className="lg:w-[1000px] flex justify-center items-center gap-10">
-        <Image src={CompileLogo} alt="compile logo" height={289} />
+        <Image src={CompileLogo} alt="compile logo" height={289} className="" />
         <div className="text-ins8ball-yellow">
           <h1 className="text-2xl">COMPILE</h1>
           <p className="mt-4 max-w-[40ch] text-white">
