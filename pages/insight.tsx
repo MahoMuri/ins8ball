@@ -3,14 +3,14 @@ import Email from "../assets/img/icon-email.svg";
 import Facebook from "../assets/img/icon-facebook.svg";
 import Instagram from "../assets/img/icon-instagram.svg";
 import InsightLogo from "../assets/img/insight.png";
-import TestSixteenPersonalityTrait from "../assets/img/test-16-personalities.png";
 import TestApology from "../assets/img/test-apology-langauge.png";
+import style from "../styles/Insight.module.css";
 import TestLoveStyles from "../assets/img/test-love-styles.png";
 import TestEnneagram from "../assets/img/test-enneagram.png";
 import TestCareer from "../assets/img/test-career.png";
 import TestWork from "../assets/img/test-work-assessment.png";
 import Image from "next/image";
-import styles from "../styles/Navbar.module.css";
+import Link from "next/link";
 
 export default function Insight() {
   return (
@@ -26,30 +26,28 @@ export default function Insight() {
               ideals of Psychology in fostering growth among students.
             </p>
             <div className="flex gap-4 mt-5">
-              <a href="mailto:insight@iacademy.edu.ph">
+              <Link href="mailto:insight@iacademy.edu.ph">
                 <Email />{" "}
-              </a>
-              <a href="https://discord.gg/skTDXVxV4u">
+              </Link>
+              <Link href="https://discord.gg/skTDXVxV4u">
                 <Discord />{" "}
-              </a>
-              <a href="https://instagram.com/iacademyinsight/">
+              </Link>
+              <Link href="https://instagram.com/iacademyinsight/">
                 <Instagram />{" "}
-              </a>
-              <a href="https://facebook.com/iACiNSIGHT">
+              </Link>
+              <Link href="https://facebook.com/iACiNSIGHT">
                 <Facebook />{" "}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       </div>
-      <h1 className="text-2xl text-ins8ball-green font-firaCode text-center mt-10">
+      <h1 className="text-3xl text-ins8ball-green font-firaCode text-center mt-10">
         PERSONALITY TESTS{" "}
       </h1>
 
       {/* row title */}
-      <h2 className="text-ins8ball-yellow font-firaCode text-center mt-10 mb-10 text-lg">
-        Love
-      </h2>
+      <h2 className={style.sectionHeader}>Love</h2>
       {/* col 1 */}
       <div className="flex items-center justify-center font-firaCode mt-5">
         <div className="place-center auto-rows-max md:auto-rows-min gap-10">
@@ -62,12 +60,13 @@ export default function Insight() {
                 className="rounded-xl"
               ></Image>
             </div>
-            <a
+            <Link
               href="https://www.truity.com/test/love-styles-test"
-              className="mb-10 mt-6 text-center text-ins8ball-gray"
+              target={"_blank"}
+              className={style.cardLink}
             >
               7 Love Language Styles
-            </a>
+            </Link>
           </div>
         </div>
         {/* col 2 */}
@@ -80,18 +79,17 @@ export default function Insight() {
               className="rounded-xl"
             ></Image>
           </div>
-          <a
-            href="https://5lovelanguages.com/quizzes/apology-language "
-            className="mb-10 mt-6 text-center text-ins8ball-gray"
+          <Link
+            href="https://5lovelanguages.com/quizzes/apology-language"
+            target={"_blank"}
+            className={style.cardLink}
           >
             Apology Language
-          </a>
+          </Link>
         </div>
       </div>
       {/* end of row */}
-      <h2 className="text-ins8ball-yellow font-firaCode text-center mt-10 mb-10 text-lg">
-        Career
-      </h2>
+      <h2 className={style.sectionHeader}>Career</h2>
       {/* col 1 */}
       <div className="flex items-center justify-center font-firaCode mt-5">
         <div className="place-center grid grid-cols-1 grid-flow-row-dense grid-rows-1 auto-rows-max md:auto-rows-min gap-10">
@@ -103,17 +101,18 @@ export default function Insight() {
               className="rounded-xl"
             ></Image>
 
-            <a
+            <Link
               href="https://www.truity.com/test/career-personality-profiler-test"
-              className="mb-5 mt-6 text-center font-xs text-ins8ball-gray w-[20ch]"
+              target={"_blank"}
+              className={`${style.cardLink} w-[20ch]`}
             >
               Career Personality Profiler
-            </a>
+            </Link>
           </div>
         </div>
       </div>
       {/* end of row */}
-      <h2 className="text-ins8ball-yellow font-firaCode text-center mt-10 mb-10 text-lg">
+      <h2 className={style.sectionHeader}>
         Future in Academics, Money or Business
       </h2>
       {/* col 1 */}
@@ -127,19 +126,18 @@ export default function Insight() {
               className="rounded-xl"
             ></Image>
 
-            <a
+            <Link
               href="https://www.truity.com/test/enneagram-personality-test"
-              className="mb-5 mt-6 text-center font-xs text-ins8ball-gray w-[20ch]"
+              target={"_blank"}
+              className={`${style.cardLink} w-[20ch]`}
             >
               The Enneagram Personality Test
-            </a>
+            </Link>
           </div>
         </div>
       </div>
       {/* end of row */}
-      <h2 className="text-ins8ball-yellow font-firaCode text-center mt-10 mb-10 text-lg">
-        Team Personality and Work Style
-      </h2>
+      <h2 className={style.sectionHeader}>Team Personality and Work Style</h2>
       {/* col 1 */}
       <div className="flex items-center justify-center font-firaCode mt-5">
         <div className="place-center grid grid-cols-1 grid-flow-row-dense grid-rows-1 auto-rows-max md:auto-rows-min gap-10">
@@ -151,12 +149,13 @@ export default function Insight() {
               className="rounded-xl"
             ></Image>
 
-            <a
+            <Link
               href="https://www.truity.com/test/disc-personality-test"
-              className="mb-5 mt-6 text-center font-xs text-ins8ball-gray w-[20ch]"
+              target={"_blank"}
+              className={style.cardLink}
             >
               Work Assessment
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -166,9 +165,9 @@ export default function Insight() {
         <p className="">Did not find what you&apos;re looking for? </p>
         <p>
           <span>
-            <a href="mailto:compile@iacademy.edu.ph">
+            <Link href="mailto:compile@iacademy.edu.ph">
               <b>contact</b>
-            </a>
+            </Link>
           </span>{" "}
           the devs for an update!
         </p>
